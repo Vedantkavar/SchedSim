@@ -223,16 +223,16 @@ export function AlgorithmSelector({
         </CardTitle>
         <CardDescription>Select and configure the scheduling algorithm</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="space-y-3">
+      <CardContent className="space-y-2">
+        <div className="space-y-2">
           <div className="flex items-center justify-between">
             <Label className="transition-colors duration-200">Algorithm</Label>
             <button
               onClick={toggleInfo}
               className={`relative flex items-center justify-center w-6 h-6 rounded-full border-2 transition-all duration-300 ease-out transform ${
                 showInfo
-                  ? "bg-blue-600 border-blue-600 text-white scale-110 shadow-lg shadow-blue-500/25"
-                  : "border-blue-400 text-blue-600 hover:border-blue-500 hover:text-blue-700 hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:scale-105"
+                  ? "bg-blue-600 border-blue-600 text-white scale-110 shadow-lg shadow-blue-800/25"
+                  : "text-blue-400 hover:border-blue-600 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:scale-105"
               }`}
               title="Show algorithm information"
             >
@@ -250,7 +250,7 @@ export function AlgorithmSelector({
               ref={buttonRef}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-gray-700 hover:bg-gray-600 dark:bg-slate-700 dark:hover:bg-slate-600 text-white transition-all duration-200 border border-gray-600 dark:border-slate-500"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-red/20 dark:bg-white/10 dark:hover:bg-white/20 backdrop-blur-md border border-white/20 hover:border-white/30 dark:border-white/20 dark:hover:border-white/30 shadow-lg hover:shadow-xl text-gray-900 dark:text-white transition-all duration-200"
             >
               <span>{selectedAlgo?.shortName}</span>
               <ChevronDown
@@ -261,7 +261,7 @@ export function AlgorithmSelector({
             {/* Dropdown Content */}
             {isDropdownOpen && (
               <div
-                className="absolute top-full left-0 mt-2 min-w-[280px] z-20 rounded-lg border border-gray-600 dark:border-slate-500 bg-gray-700 dark:bg-slate-700 shadow-xl overflow-hidden"
+                className="absolute top-full left-0 mt-2 mx-2 min-w-[280px] z-20 rounded-lg border border-gray-400/30 dark:border-gray-500/30 backdrop-blur-md shadow-xl overflow-hidden"
                 onMouseEnter={handleDropdownMouseEnter}
                 onMouseLeave={handleDropdownMouseLeave}
                 style={{
@@ -273,8 +273,10 @@ export function AlgorithmSelector({
                     <button
                       key={algo.value}
                       onClick={() => handleAlgorithmSelect(algo.value)}
-                      className={`w-full text-left px-3 py-2.5 rounded-md text-white hover:bg-gray-600 dark:hover:bg-slate-600 transition-all duration-200 ${
-                        selectedAlgorithm === algo.value ? "bg-gray-600 dark:bg-slate-600" : ""
+                      className={`w-full text-left px-3 mb-1 py-1.5 rounded-md text-gray-800 dark:text-gray-200 hover:bg-white/40 dark:hover:bg-gray-700/40 backdrop-blur-sm transition-all duration-200 ${
+                        selectedAlgorithm === algo.value
+                          ? "bg-white/40 dark:bg-gray-700/40 shadow-md backdrop-blur-sm"
+                          : ""
                       }`}
                       style={{
                         animation: `fillFromTop 0.4s ease-out forwards`,
@@ -286,9 +288,9 @@ export function AlgorithmSelector({
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="font-medium text-sm">{algo.label}</div>
-                          <div className="text-xs text-gray-300 dark:text-slate-400">{algo.shortName}</div>
+                          <div className="text-xs text-gray-600 dark:text-gray-400">{algo.shortName}</div>
                         </div>
-                        {selectedAlgorithm === algo.value && <div className="w-2 h-2 bg-blue-400 rounded-full"></div>}
+                        {selectedAlgorithm === algo.value && <div className="w-2 h-2 bg-blue-500 rounded-full"></div>}
                       </div>
                     </button>
                   ))}
@@ -324,10 +326,11 @@ export function AlgorithmSelector({
               </div>
             </div>
           </div>
+          
         </div>
 
         {/* Use Priority Toggle */}
-        <div className="space-y-3 animate-in slide-in-from-top duration-300">
+        <div className="space-y-2 animate-in slide-in-from-top duration-300">
           <Label className="transition-colors duration-200">Use Priority</Label>
           <div className="flex gap-2">
             <button
@@ -372,8 +375,9 @@ export function AlgorithmSelector({
 
         {/* Priority Order Selection - Shows for all algorithms when priority is enabled */}
         {usePriority && (
+
           <div className="priority-container">
-            <div className="space-y-3 priority-pop-in priority-element">
+            {/* <div className="space-y-3 priority-pop-in priority-element"> */}
               <Label className="transition-colors duration-200">Priority Order</Label>
 
               {/* Custom Priority Order Dropdown Button */}
@@ -382,7 +386,7 @@ export function AlgorithmSelector({
                   ref={priorityButtonRef}
                   onMouseEnter={handlePriorityMouseEnter}
                   onMouseLeave={handlePriorityMouseLeave}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-gray-700 hover:bg-gray-600 dark:bg-slate-700 dark:hover:bg-slate-600 text-white transition-all duration-200 border border-gray-600 dark:border-slate-500 transform hover:scale-[1.02] active:scale-[0.98]"
+                  className="inline-flex mt-3 mb-1 items-center justify-center gap-2 px-4 py-2 text-sm font-medium rounded-lg bg-white/10 hover:bg-red/20 dark:bg-white/10 dark:hover:bg-white/20 backdrop-blur-md border border-white/20 hover:border-white/30 dark:border-white/20 dark:hover:border-white/30 shadow-lg hover:shadow-xl text-gray-900 dark:text-white transition-all duration-200"
                 >
                   <span>{selectedPriorityOption?.shortName}</span>
                   <ChevronDown
@@ -392,21 +396,25 @@ export function AlgorithmSelector({
 
                 {/* Priority Dropdown Content */}
                 {isPriorityDropdownOpen && (
+                  
                   <div
-                    className="absolute top-full left-0 mt-2 min-w-[280px] z-20 rounded-lg border border-gray-600 dark:border-slate-500 bg-gray-700 dark:bg-slate-700 shadow-xl overflow-hidden"
+                    className="absolute top-full pb-1 left-0 mx-2 mt-1 min-w-[280px] z-20 rounded-lg border border-gray-400/30 dark:border-gray-500/30 backdrop-blur-md shadow-xl overflow-hidden"
                     onMouseEnter={handlePriorityDropdownMouseEnter}
                     onMouseLeave={handlePriorityDropdownMouseLeave}
                     style={{
                       animation: "dropdownSlideDown 0.3s ease-out forwards",
                     }}
                   >
+                    
                     <div className="p-2">
                       {priorityOptions.map((option, index) => (
                         <button
                           key={option.value}
                           onClick={() => handlePriorityOrderSelect(option.value)}
-                          className={`w-full text-left px-3 py-2.5 rounded-md text-white hover:bg-gray-600 dark:hover:bg-slate-600 transition-all duration-200 ${
-                            priorityOrder === option.value ? "bg-gray-600 dark:bg-slate-600" : ""
+                          className={`w-full text-left px-3 mb-1 py-1.5 rounded-md text-gray-800 dark:text-gray-200 hover:bg-white/40 dark:hover:bg-gray-700/40 backdrop-blur-sm transition-all duration-200 ${
+                            priorityOrder === option.value
+                              ? "bg-white/40 dark:bg-gray-700/40 shadow-md backdrop-blur-sm"
+                              : ""
                           }`}
                           style={{
                             animation: `fillFromTop 0.4s ease-out forwards`,
@@ -418,9 +426,9 @@ export function AlgorithmSelector({
                           <div className="flex items-center justify-between">
                             <div>
                               <div className="font-medium text-sm">{option.label}</div>
-                              <div className="text-xs text-gray-300 dark:text-slate-400">{option.description}</div>
+                              <div className="text-xs text-gray-600 dark:text-gray-400">{option.description}</div>
                             </div>
-                            {priorityOrder === option.value && <div className="w-2 h-2 bg-blue-400 rounded-full"></div>}
+                            {priorityOrder === option.value && <div className="w-2 h-2 bg-blue-500 rounded-full"></div>}
                           </div>
                         </button>
                       ))}
@@ -428,7 +436,7 @@ export function AlgorithmSelector({
                   </div>
                 )}
               </div>
-            </div>
+            {/* </div> */}
           </div>
         )}
 
@@ -467,7 +475,7 @@ export function AlgorithmSelector({
           </Button>
         </div>
 
-        <div className="text-sm text-gray-500">Processes: {processCount}</div>
+        {/* <div className="text-sm text-gray-500">Processes: {processCount}</div> */}
       </CardContent>
     </Card>
   )

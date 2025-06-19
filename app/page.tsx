@@ -116,10 +116,7 @@ export default function OSScheduler() {
           <div className="absolute top-0 right-0">
             <ThemeToggle />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">OS Scheduling Algorithms Visualizer</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            Interactive visualization of CPU scheduling algorithms
-          </p>
+          <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 ">OS Scheduling Algorithms Visualizer</h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

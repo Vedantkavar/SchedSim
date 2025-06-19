@@ -4,8 +4,8 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: "OS Scheduling Algorithms Visualizer",
-  description: "Interactive visualization of CPU scheduling algorithms",
+  title: "SchedSim",
+  description: "",
     generator: 'v0.dev'
 }
 

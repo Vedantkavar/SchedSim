@@ -169,7 +169,7 @@ export function ProcessList({
 
   return (
     <>
-      <Card className="transition-all duration-300 hover:shadow-lg">
+      <Card className="transition-all duration-300 hover:shadow-lg hover:scale-[1.01]">
         <CardHeader className="pb-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
